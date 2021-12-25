@@ -1,0 +1,110 @@
+.footer {
+    margin-top: 8rem;
+    padding: 4rem 0;
+    background-color: $black;
+
+    .hold {
+        display: grid;
+        grid-template: repeat(2, auto) / 1.5fr 1fr;
+        grid-gap: 1rem;
+        grid-template-areas:
+            "a b"
+            "c d";
+    }
+
+    &Logo {
+        grid-area: a;
+    }
+    &Media {
+        &s {
+            grid-area: b;
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        margin-right: 1.5rem;
+        text-decoration: none;
+        position: relative;
+        display: block;
+        color: $white;
+
+        &::after {
+            width: 100%;
+            height: 0.2rem;
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -0.75rem;
+            transform: translateX(-50%);
+            transition: all 0.2s ease;
+        }
+        &:hover {
+            &::after {
+                background-color: $white;
+                border-radius: 0.2rem;
+            }
+        }
+    }
+    &Link {
+        &s {
+            grid-area: c;
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        margin-right: 1.5rem;
+        text-decoration: none;
+        position: relative;
+        display: block;
+        color: $white;
+
+        &::after {
+            width: 40%;
+            height: 0.2rem;
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -0.75rem;
+            transform: translateX(-50%);
+            transition: all 0.2s ease;
+        }
+        &:hover {
+            &::after {
+                background-color: $white;
+                border-radius: 0.2rem;
+            }
+        }
+    }
+
+    &Copy {
+        grid-area: d;
+        font-size: 0.9rem;
+        color: $veryDarkGray;
+    }
+
+    @include mediumSub() {
+        margin-top: 4rem;
+        padding: 2rem 0;
+    }
+    @include mobile() {
+        .hold {
+            place-items: center;
+            grid-template: repeat(4, auto) / 1fr;
+            grid-template-areas:
+                "a"
+                "c"
+                "b"
+                "d";
+        }
+        &Link {
+            &s {
+                flex-direction: column;
+            }
+
+            margin: 0;
+            margin-bottom: 1rem;
+        }
+    }
+}

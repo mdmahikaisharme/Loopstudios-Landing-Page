@@ -1,0 +1,87 @@
+.interactive {
+    --w: 55%;
+    --h: 45vh;
+    padding: 8rem 0;
+    position: relative;
+
+    &Img {
+        width: var(--w);
+        height: var(--h);
+        background-image: url("../images/desktop/image-interactive.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+    &Txt {
+        padding: 4rem;
+        width: var(--w);
+        height: var(--h);
+        position: absolute;
+        top: 40%;
+        left: 45%;
+        background-color: $white;
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 300;
+            line-height: 1em;
+            text-transform: uppercase;
+        }
+        p {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.5em;
+            color: $veryDarkGray;
+        }
+    }
+
+    @include desktop() {
+        --w: 50%;
+        --h: 35vh;
+
+        &Txt {
+            h2 {
+                font-size: 2.25rem;
+            }
+            p {
+                font-size: 0.85rem;
+            }
+        }
+    }
+    @include medium() {
+        &Txt {
+            h2 {
+                font-size: 2rem;
+            }
+            p {
+                margin-top: 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    }
+    @include mediumSub() {
+        --w: 100%;
+        padding: 4rem 0;
+
+        &Img {
+            background-image: url("../images/mobile/image-interactive.jpg");
+        }
+        &Txt {
+            max-width: 60ch;
+            height: auto;
+            margin: 0 auto;
+            padding: 2rem 0 0 0;
+            text-align: center;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+    }
+    @include mobileSub() {
+        &Txt {
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

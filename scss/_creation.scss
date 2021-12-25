@@ -1,0 +1,127 @@
+.creation {
+    &Head {
+        padding: 4rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h3 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            line-height: 1em;
+            text-transform: uppercase;
+        }
+        button {
+            padding: 0.5rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1em;
+            text-transform: uppercase;
+            background-color: $white;
+            border: 2px solid $veryDarkGray;
+
+            &:hover {
+                background-color: $black;
+                border-color: $black;
+                color: $white;
+            }
+        }
+    }
+    &Card {
+        &s {
+            display: grid;
+            grid-gap: 1.5rem;
+            grid-template: repeat(2, 40vh) / repeat(4, 1fr);
+        }
+
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: all 0.2s ease;
+
+        h4 {
+            padding: 2rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 1em;
+            text-transform: uppercase;
+            color: $white;
+            z-index: 1;
+        }
+
+        &::after {
+            width: 100%;
+            height: 100%;
+            content: "";
+            position: absolute;
+            transition: all 0.2s ease;
+        }
+
+        &:hover {
+            h4 {
+                color: $black;
+            }
+
+            &::after {
+                background-color: rgba($white, 0.5);
+            }
+        }
+    }
+
+    @include desktop() {
+        &Head {
+            h3 {
+                font-size: 1.75rem;
+            }
+            button {
+                font-size: 0.9rem;
+            }
+        }
+
+        &Card {
+            &s {
+                grid-template: repeat(4, 40vh) / repeat(2, 1fr);
+            }
+
+            h4 {
+                font-size: 1.4rem;
+            }
+        }
+    }
+    @include medium() {
+        &Head {
+            h3 {
+                font-size: 1.25rem;
+            }
+        }
+    }
+    @include mediumSub() {
+        &Head {
+            padding: 2rem 0;
+        }
+        &Card {
+            h4 {
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+        }
+    }
+    @include mobileSub() {
+        &Head {
+            h3 {
+                font-size: 1rem;
+            }
+            button {
+                font-size: 0.7rem;
+            }
+        }
+
+        &Card {
+            &s {
+                grid-template: repeat(8, 20vh) / 1fr;
+            }
+        }
+    }
+}

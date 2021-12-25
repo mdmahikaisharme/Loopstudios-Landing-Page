@@ -1,0 +1,15 @@
+@import "./variable";
+@import "./reset";
+@import "./mixin";
+
+body {
+    overflow-x: hidden;
+}
+.hold {
+    width: 80%;
+    margin: 0 auto;
+}
+@import "./header";
+@import "./interactive";
+@import "./creation";
+@import "./footer";
